@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-# Copyright (c) 202 Almaz Andukov <>
-#
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Eclipse Public License v1.0
-# and Eclipse Distribution License v1.0 which accompany this distribution.
-#
-# The Eclipse Public License is available at
-#    http://www.eclipse.org/legal/epl-v10.html
-# and the Eclipse Distribution License is available at
-#   http://www.eclipse.org/org/documents/edl-v10.php.
-#
-# Contributors:
-#    Almaz Andukov
-
 import telebot
 from functions import *
 import logging
@@ -44,7 +29,7 @@ def start(message):
     msg += '📌 Нажмите "Контакты" чтобы задать вопрос.\n'
     msg += '📌 Нажмите "Корзина" чтобы посмотреть выбранные товары.\n'
     bot.send_message(message.chat.id, msg, reply_markup=markup_menu())
-    info = f'{msg.chat.id} started ShopBot'
+    info = f'{message.chat.id} started ShopBot'
     logger.info(info)
 
 
@@ -128,7 +113,7 @@ def callback_inline(call):
                     bot.send_message(-496190531, msg)
                     bot.send_message(call.message.chat.id, 'Ваш заказ оформляется и'
                                                            ' будет доставлен в ближайшее время 😉')
-                    info = f'{msg.chat.id} bought'
+                    info = f'{call.message.chat.id} bought'
                     logger.info(info)
                 else:
                     msg = bot.send_message(call.message.chat.id, 'Введите адрес заново:')
