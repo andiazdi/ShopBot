@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020 Almaz Andukov <>
+# Copyright (c) 202 Almaz Andukov <>
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
