@@ -7,7 +7,7 @@ logger = logging.getLogger('Logger')
 
 
 logger.info('App is running')
-bot = telebot.TeleBot('1642629677:AAHs3L6nV8rnJHE7MZxyw-sZJHH8C07BBNQ')
+bot = telebot.TeleBot('')
 products = {'beef': 'мясная лапша',
             'chicken': 'куриная лапша',
             'caramel': 'Молочная конфета',
