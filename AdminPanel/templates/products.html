@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавление товара</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+<!--Title-->
+    <div>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control ") }}<br>
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+<!--Price-->
+    <div>
+        {{ form.price.label }}<br>
+        {{ form.price(class="form-control") }}<br>
+        {% for error in form.price.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+<!--Count-->
+    <div>
+        {{ form.count.label }}<br>
+        {{ form.count(class="form-control") }}<br>
+        {% for error in form.count.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}</div>
+<!--Category-->
+   <div class="form-group">
+        {{form.category.label(class="form-control-label")}}
+        {{form.category(class="form-control form-control-lg")}}<br>
+        {% for error in form.category.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+   </div>
+<!--File-->
+    <div>
+        {{ form.file.label }}<br>
+        {{ form.file(class="form-control") }}<br>
+        {% for error in form.file.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}</div>
+
+
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

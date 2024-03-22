@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Товары</h1>
+
+<!--Product table-->
+<table class="table">
+  <thead class="table-primary">
+    <tr class="table-bordered">
+      <th scope="col">Номер</th>
+      <th scope="col">Название</th>
+      <th scope="col">Стоимость</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Категория</th>
+      <th scope="col">Изображение</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    {% for item in products%}
+    <tbody>
+        <tr class="table-bordered">
+          <th style="background-color: honeydew" scope="row">{{item.id}}</th>
+          <td style="background-color: honeydew">{{item.title}}</td>
+          <td style="background-color: honeydew">{{item.price}}</td>
+          <td style="background-color: honeydew">{{item.count}}
+            <a href="product_add/{{item.id}}" class="btn btn-success" style="width: 35px;">+</a>
+            <a href="product_reduce/{{item.id}}" class="btn btn-danger" style="width: 35px;">-</a></td>
+          <td style="background-color: honeydew">{{item.category}}</td>
+          <td style="background-color: honeydew">            
+		<img style="width: 50px" src="static/images/products/{{item.file}}" alt="{{item.file}}"></td>
+          <td style="background-color: honeydew;">
+            <a href="product/{{item.id}}"class="btn btn-info">Изменить</a></td>
+          <td style="background-color: honeydew;"><a href="product_delete/{{item.id}}" class="btn btn-danger">Удалить</a></td>
+        </tr>
+  </tbody>
+{% endfor %}
+</table>
+<a href="product" class="btn btn-secondary">Добавить товар</a>
+<br><br>
+
+<h1 align="center">Категории</h1>
+<!--Categories table-->
+<table class="table">
+  <thead class="table-primary">
+    <tr class="table-bordered">
+      <th scope="col">Номер</th>
+      <th scope="col">Название</th>
+      <th scope="col">Изображнение</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    {% for item in categories%}
+    <tbody>
+        <tr class="table-bordered">
+          <th style="background-color: honeydew" scope="row">{{item.id}}</th>
+          <td style="background-color: honeydew">{{item.title}}</td>
+          <td style="background-color: honeydew"><img style="width: 45px;" src="/static/images/categories/{{item.file}}" alt={{item.file}}></td>
+          <td style="background-color: honeydew"><a href="category/{{item.id}}" class="btn btn-info">Изменить</a></td>
+          <td style="background-color: honeydew"><a href="category_delete/{{ item.id }}" class="btn btn-danger">Удалить</a></td>
+        </tr>
+  </tbody>
+{% endfor %}
+</table>
+<a href="category" class="btn btn-secondary">Добавить категорию</a>
+
+{% endblock %}

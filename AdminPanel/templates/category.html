@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавление категории</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <!--title-->
+    <div>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control ") }}<br>
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <!--file-->
+    <div>
+        {{ form.file.label }}<br>
+        {{ form.file(class="form-control ") }}<br>
+        {% for error in form.file.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}
