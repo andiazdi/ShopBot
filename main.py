@@ -92,15 +92,15 @@ def callback_inline(call):
                 bot.delete_message(call.message.chat.id, call.message.message_id)
                 _, product, price = call.data.split('_')
                 # is_fruit = is_product_fruit(product)
-                bot.send_photo(call.message.chat.id, open(f'{product}.png', 'rb'), reply_markup=markup_product(product, price))
+                bot.send_photo(call.message.chat.id, open(f'static/{product}.png', 'rb'), reply_markup=markup_product(product, price))
 
             elif 'go_to_candies' == call.data:
                 bot.delete_message(call.message.chat.id, call.message.message_id)
-                bot.send_photo(call.message.chat.id, open('candies.png', 'rb'), reply_markup=markup_candies())
+                bot.send_photo(call.message.chat.id, open('static/candies.png', 'rb'), reply_markup=markup_candies())
 
             elif 'go_to_noodles' == call.data:
                 bot.delete_message(call.message.chat.id, call.message.message_id)
-                bot.send_photo(call.message.chat.id, open('noodles.jpg', 'rb'), reply_markup=markup_noodles())
+                bot.send_photo(call.message.chat.id, open('static/noodles.jpg', 'rb'), reply_markup=markup_noodles())
 
             elif 'go_to_catalog' == call.data:
                 bot.delete_message(call.message.chat.id, call.message.message_id)
